@@ -27,10 +27,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: ansible check with debian:sid
-        # optionally replace "master" with any valid git ref
-        uses: roles-ansible/check-ansible-debian-latest-action@sid
+        # optionally replace "v1" with any valid git ref (branch, release, commit...)
+        uses: roles-ansible/check-ansible-debian-latest-action@v1
         with:
-          targets: "./"
+          targets: "/github/workspace"
           #  [required]
           #   Paths to your ansible role or playboox.yml you want to test
           #   Some Examples:
@@ -90,6 +90,12 @@ on:
 or on various [events](https://help.github.com/en/articles/events-that-trigger-workflows)
 
 <br/>
+
+ Limitations
+-------------
+The docker container unfortunately does not support a systemd environment. Therefore, it is currently not possible to test ansible roles that do anything in this direction.
+If you have suggestions how to change this, they are welcome!
+
 
  Contributing
 -------------
