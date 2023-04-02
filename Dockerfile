@@ -32,11 +32,11 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     software-properties-common \
     systemd-cron sudo iproute2 \
       && apt-get clean \
-      && rm -rf /var/lib/apt/lists/*
+      && rm -rf /var/lib/apt/lists/* \
+      && python3 -m venv ansible
 
 # hadolint ignore=DL3008,DL3013,SC1091
-RUN python3 -m venv ansible \
-      && ./ansible/bin/activate \
+RUN . /ansible/bin/activate \
       && pip3 install --no-cache-dir setuptools \
       && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
       && pip3 install --no-cache-dir ansible \
