@@ -3,6 +3,8 @@
 set -Eeuo pipefail
 set -x
 
+source ./ansible/bin/activate
+
 # Generates client.
 # env:
 #   [required] TARGETS : Path to your ansible role or to a playbook .yml file you want to be tested.
