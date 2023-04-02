@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 set -x
 
-source ./ansible/bin/activate
+. /ansible/bin/activate
 
 # Generates client.
 # env:
