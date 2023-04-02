@@ -34,7 +34,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
       && apt-get clean \
       && rm -rf /var/lib/apt/lists/*
 
-# hadolint ignore=DL3008,DL3013
+# hadolint ignore=DL3008,DL3013,SC1091
 RUN python3 -m venv ansible \
       && source ansible/bin/activate \
       && pip3 install --no-cache-dir setuptools \
