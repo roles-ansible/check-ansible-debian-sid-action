@@ -3,6 +3,7 @@
 set -Eeuo pipefail
 set -x
 
+# shellcheck disable=SC1091
 . /ansible/bin/activate
 
 # Generates client.
