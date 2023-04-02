@@ -13,7 +13,7 @@ LABEL "com.github.actions.color"="green"
 # hadolint ignore=DL3008,DL3013
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     apt-utils \
-    python-xyz \
+    python3-xyzservices \
     software-properties-common \
     build-essential \
     libffi-dev \
