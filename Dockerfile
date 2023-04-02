@@ -19,6 +19,7 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     libffi-dev \
     libssl-dev \
     python3-dev \
+    python3-venv \
     python3-pip \
     git \
     systemd \
@@ -31,7 +32,11 @@ RUN apt-get update -y && apt-get install -y --no-install-recommends \
     software-properties-common \
     systemd-cron sudo iproute2 \
       && apt-get clean \
-      && rm -rf /var/lib/apt/lists/* \
+      && rm -rf /var/lib/apt/lists/*
+
+# hadolint ignore=DL3008,DL3013,SC1091
+RUN python3 -m venv ansible \
+      && source ansible/bin/activate \
       && pip3 install --no-cache-dir setuptools \
       && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
       && pip3 install --no-cache-dir ansible \
